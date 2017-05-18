@@ -1,0 +1,17 @@
+.title-bar{
+  background: $header-bg;
+  color: $header-color;
+
+}
+
+.title-bar__content{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: $size-max-with;
+  padding: $space;
+}
+
+.title-bar__title{
+  margin: 0;
+}
