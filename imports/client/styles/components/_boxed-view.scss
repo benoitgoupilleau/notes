@@ -12,8 +12,14 @@
   left:0;
   right:0;
   bottom:0;
+  z-index: 1;
 }
-
+.boxed-view--modal__title{
+  padding-bottom: $space;
+}
+.boxed-view--modal__button{
+  margin-right: $space;
+}
 .boxed-view__box{
   background-color: $boxed-view-bg;
   border: 1px solid $boxed-view-border-color;

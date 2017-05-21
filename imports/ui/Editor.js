@@ -6,6 +6,7 @@ import {Meteor} from 'meteor/meteor';
 import {browserHistory} from 'react-router';
 
 import {Notes} from '../api/notes';
+import DeleteNote from './DeleteNote';
 
 export class Editor extends React.Component {
   constructor(props){
@@ -46,9 +47,10 @@ export class Editor extends React.Component {
         <div className="editor">
           <input className="editor__title" value={this.state.title} placeholder="Untitled note" onChange={this.handleTitleChange.bind(this)}/>
           <textarea className="editor__body" value={this.state.body} placeholder="Your note here" onChange={this.handleBodyChange.bind(this)}></textarea>
-          <div>
+          <DeleteNote noteId={this.props.note._id}/>
+          {/* <div>
             <button className="button button--secondary" onClick={this.handleRemoval.bind(this)}>Delete Note</button>
-          </div>
+          </div> */}
         </div>
       );
     } else {
