@@ -9,16 +9,29 @@ import NoteListHeader from './NoteListHeader';
 import NoteListItem from './NoteListItem';
 import NoteListEmptyItem from './NoteListEmptyItem';
 
-export const NoteList =(props)=>{
-  return (
+export class NoteList extends React.Component{
+  constructor(props){
+    super(props);
+    this.state ={
+      search:''
+    }
+  }
+  handleSearch(e){
+    const search = e.target.value;
+    this.setState({search})
+  }
+  render(){
+    return (
     <div className="item-list">
       <NoteListHeader/>
-      {props.notes.length===0 ? <NoteListEmptyItem/> : undefined}
-      {props.notes.map((note)=>{
-        return <NoteListItem key={note._id} note={note}/>
+      {this.props.notes.length===0 ? <NoteListEmptyItem/> : (<div className="item-list__search"><input className="item-list__searchtext" onChange={this.handleSearch.bind(this)} value={this.state.search} placeholder="Search notes"/></div>)}
+      {this.props.notes.map((note)=>{
+        if (note.title.toLowerCase().includes(this.state.search.toLowerCase()) || note.body.toLowerCase().includes(this.state.search.toLowerCase())) {
+          return <NoteListItem key={note._id} note={note}/>
+        }
         })}
     </div>
-  )
+  )}
 };
 
 NoteList.propTypes ={
