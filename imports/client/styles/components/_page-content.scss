@@ -1,5 +1,18 @@
 .page-content{
+  display: flex;
+  height: $page-content-height;
   margin: 0 auto;
-  max-width: $size-max-with;
-  padding: $space;
+  max-width: $site-max-width;
+  padding: $large-space $space;
+}
+
+.page-content__sidebar{
+  display: flex;
+  padding-right: $large-space;
+  width: $sidebar-width;
+}
+
+.page-content__main{
+  display: flex;
+  width: $main-width;
 }
